@@ -2,30 +2,7 @@
 import _ from 'lodash';
 import './style.css';
 import refresh from './refresh.png';
-
-const tasks = [
-  {
-    index: 3,
-    description: 'to finish to do list app',
-    completed: false,
-
-  },
-
-  {
-    index: 2,
-    description: 'to finish daily tasks',
-    completed: true,
-
-  },
-
-  {
-    index: 1,
-    description: 'to finish standup meeting',
-    completed: true,
-
-  },
-
-];
+import tasks from './modules/tasks.js';
 
 let count = 0;
 
