@@ -22,6 +22,17 @@ setInterval(() => {
   countmsg.innerHTML = `${task.tasklist.length}&nbsp;tasks`;
 }, 1000);
 
+window.changed = (i, item) => {
+  const change = JSON.parse(localStorage.getItem('tasks'));
+  for (let i = 0; i < change.length; i += 1) {
+    if (task.tasklist[i].description === item) {
+      task.tasklist[i].completed = true;
+      localStorage.setItem('tasks', JSON.stringify(task.tasklist));
+    }
+  }
+  window.location.reload();
+};
+
 window.deleteTask = (i) => {
   task.tasklist.splice(i, 1);
   task.tasklist.forEach((item) => {
