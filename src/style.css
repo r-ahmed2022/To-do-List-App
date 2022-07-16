@@ -28,6 +28,10 @@ h2 {
   padding: 0;
 }
 
+#msgs {
+    color: rgb(55, 143, 172);
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -116,29 +120,21 @@ h2 {
   background: darkgray;
 }
 
-#three-dots {
+.action {
   font-size: 1rem;
-  font-weight: bold;
+  padding: 0.5rem;
   cursor: pointer;
-  padding: 4px 8px;
   margin: 0;
+  border: 0;
+  background: lightblue;
+  box-shadow: 1px 1px 1px 2px #000;
     }
 
- .edit {
-    
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 4px 8px;
-    margin: 0;
-
- }
-  .delete, .edit:hover {
-    
-    transform: scale(1.2);
+  .action:hover {
+     transform: scale(1.2);
     }
 
-  #error {
+     #error {
    font-size: 1rem;
    color: red;
    font-weight: bold;
@@ -163,9 +159,9 @@ h2 {
         font-size: 0.9rem;
         margin: 0 auto;
     }
-    .three-dots { 
+    .action { 
       font-size: 1rem;
-      transform: scale(1.5);
+      transform: none;
     }
 
     .list-item > #task-info  {

@@ -16,8 +16,10 @@ const showTasks = (task) => {
     li.innerHTML += '<input type="checkbox" name="completed" id="ompleted">';
     li.innerHTML += `<div class="info"><span  class="task.info">${task.tasklist[i].description}</span>`;
     li.innerHTML += `<span class="task-info">${task.tasklist[i].completed}</span></div>`;
-    li.innerHTML += `<div class="info"><button type="button" onclick='deleteTask(${i})' id="three-dots" class="delete">&#9249;</button>`;
-    li.innerHTML += `<button type="button" onclick="editTask(${i}, '${task.tasklist[i].description}')" class="edit">Edit</button></div>`;
+    li.innerHTML += `<div class="info"><button type="button" onclick="editTask(${i}, 
+                    '${task.tasklist[i].description}')" class="action">Edit</button>`;
+    li.innerHTML += `<button type="button" onclick='deleteTask(${i})' id="deletebtn" class="action">Del</button>
+               </div>`;
     list.append(li);
   }
 };

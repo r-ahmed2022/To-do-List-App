@@ -12,7 +12,6 @@ class Tasks {
           completed,
         });
         localStorage.setItem('tasks', JSON.stringify(this.tasklist));
-        Tasks.id += 1;
         window.history.back();
         window.location.reload();
       }

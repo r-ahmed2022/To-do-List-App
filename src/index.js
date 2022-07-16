@@ -25,7 +25,11 @@ setInterval(() => {
 window.deleteTask = (i) => {
   task.tasklist.splice(i, 1);
   task.tasklist.forEach((item) => {
-    item.index -= 1;
+    if (item.index <= 0) {
+      item.index = 1;
+    } else {
+      item.index -= 1;
+    }
   });
   localStorage.setItem('tasks', JSON.stringify(task.tasklist));
   window.location.reload();
