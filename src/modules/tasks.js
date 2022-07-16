@@ -1,25 +1,21 @@
-const tasks = [
-  {
-    index: 3,
-    description: 'to finish to do list app',
-    completed: false,
+/* eslint-disable prefer-const */
+class Tasks {
+     tasklist = [];
 
-  },
+      addTasks = () => {
+        let id = this.tasklist.length + 1;
+        const desc = document.getElementById('input-item').value;
+        let completed = false;
+        this.tasklist.push({
+          index: id,
+          description: desc,
+          completed,
+        });
+        localStorage.setItem('tasks', JSON.stringify(this.tasklist));
+        Tasks.id += 1;
+        window.history.back();
+        window.location.reload();
+      }
+}
 
-  {
-    index: 2,
-    description: 'to finish daily tasks',
-    completed: true,
-
-  },
-
-  {
-    index: 1,
-    description: 'to finish standup meeting',
-    completed: true,
-
-  },
-
-];
-
-export default tasks;
+export default Tasks;
