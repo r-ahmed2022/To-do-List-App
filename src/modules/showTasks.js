@@ -13,7 +13,7 @@ const showTasks = (task) => {
     );
     const li = document.createElement('li');
     li.setAttribute('class', 'list-item');
-    li.innerHTML += '<input type="checkbox" name="completed" id="ompleted">';
+    li.innerHTML += '<input type="checkbox"  name="completed" id="completed">';
     li.innerHTML += `<div class="info"><span  class="task.info">${task.tasklist[i].description}</span>`;
     li.innerHTML += `<span class="task-info">${task.tasklist[i].completed}</span></div>`;
     li.innerHTML += `<div class="info"><button type="button" onclick="editTask(${i}, 
