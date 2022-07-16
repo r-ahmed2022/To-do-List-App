@@ -17,21 +17,21 @@ form.addEventListener('submit', (e) => {
   }
 });
 
-setInterval(() => {
-  const countmsg = document.getElementById('msgs');
-  countmsg.innerHTML = `${task.tasklist.length}&nbsp;tasks`;
-}, 1000);
-
 window.changed = (i, item) => {
   const change = JSON.parse(localStorage.getItem('tasks'));
-  for (let i = 0; i < change.length; i += 1) {
-    if (task.tasklist[i].description === item) {
-      task.tasklist[i].completed = true;
+  for (let j = 0; j < change.length; j += 1) {
+    if (task.tasklist[j].description === item) {
+      task.tasklist[j].completed = true;
       localStorage.setItem('tasks', JSON.stringify(task.tasklist));
     }
   }
   window.location.reload();
 };
+
+setInterval(() => {
+  const countmsg = document.getElementById('msgs');
+  countmsg.innerHTML = `${task.tasklist.length}&nbsp;tasks`;
+}, 1000);
 
 window.deleteTask = (i) => {
   task.tasklist.splice(i, 1);
@@ -69,6 +69,19 @@ const element = document.getElementById('msg-logo');
 const icon = new Image();
 icon.src = refresh;
 element.appendChild(icon);
+
+window.clearAllCompletedTasks = () => {
+  const completedList = JSON.parse(localStorage.getItem('tasks'));
+  const len = completedList.length;
+  for (let j = 0; j < len; j += 1) {
+    if (task.tasklist[j].completed === true) {
+      task.tasklist.splice(j, 1);
+      j -= 1;
+      localStorage.setItem('tasks', JSON.stringify(task.tasklist));
+      window.location.reload();
+    }
+  }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   showTasks(task);

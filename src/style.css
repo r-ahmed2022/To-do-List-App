@@ -83,6 +83,19 @@ h2 {
   border: 0;
 }
 
+.header  {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.header > h4 {
+    margin: 0;
+    padding-left: 180px;
+}
+
 .to-do-list {
   width: 100%;
   display: flex;
@@ -127,6 +140,7 @@ h2 {
   border: 0;
   background: lightblue;
   box-shadow: 1px 1px 1px 2px #000;
+  border-radius: 10px;
 }
 
 .action:hover {
@@ -146,6 +160,21 @@ h2 {
   color: gray;
   text-align: center;
   border: 1px solid #ccc;
+}
+
+.clear-list {
+    width: 70%;
+    background: lightblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 0;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    cursor: pointer;
+}
+
+.clear-list:hover {
+    background: #ccc;
+    
 }
 
 @media (max-width: 500px) {
@@ -170,4 +199,13 @@ h2 {
     width: auto;
     height: 30px;
   }
+
+  .clear-list {
+    width: 100%;
+  }
+
+  .header > h4 {
+    margin: 0;
+    padding-left: 90px;
+}
 }
