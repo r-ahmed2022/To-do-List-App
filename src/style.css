@@ -83,17 +83,17 @@ h2 {
   border: 0;
 }
 
-.header  {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: start;
-    align-items: center;
+.header {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 .header > h4 {
-    margin: 0;
-    padding-left: 180px;
+  margin: 0;
+  padding-left: 180px;
 }
 
 .to-do-list {
@@ -163,18 +163,17 @@ h2 {
 }
 
 .clear-list {
-    width: 70%;
-    background: lightblue;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border: 0;
-    box-shadow: 1px 1px 1px 1px #ccc;
-    cursor: pointer;
+  width: 70%;
+  background: lightblue;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 0;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  cursor: pointer;
 }
 
 .clear-list:hover {
-    background: #ccc;
-    
+  background: #ccc;
 }
 
 @media (max-width: 500px) {
@@ -207,5 +206,5 @@ h2 {
   .header > h4 {
     margin: 0;
     padding-left: 90px;
-}
+  }
 }
