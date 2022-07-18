@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.site-header {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 40px;
+}
+
+.app-title {
+  color: lightsteelblue;
+}
+
+.To-do-list-section {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 0;
+}
+
+.add-new-to-do {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 5px auto;
+  padding: 5px 15px 5px 40px;
+}
+
+.add-new-to-do > input {
+  width: 90%;
+  margin: 0;
+  padding: 15px 10px;
+  font-size: 1.2rem;
+  border: 0;
+  box-shadow: 1px 1px 1px 4px #ccc;
+}
+
+.to-do-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.list-item {
+  width: 90%;
+  list-style: none;
+  margin: 10px 0;
+  padding: 3px 10px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+.list-item:nth-child(even) {
+  background: #ccc;
+}
+
+.list-item:hover {
+  background: darkgray;
+}
+
+.task-info-completed {
+  margin-left: auto;
+}
+
+.three-dots {
+  float: right;
+  display: inline;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.task-status {
+  width: 100%;
+  background: #fff;
+  color: gray;
+  text-align: center;
+  border: 1px solid #ccc;
+}
