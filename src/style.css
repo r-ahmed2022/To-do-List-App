@@ -20,7 +20,7 @@ body {
 .site-header {
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
 
 h2 {
@@ -28,16 +28,23 @@ h2 {
   padding: 0;
 }
 
+#msgs {
+  color: rgb(55, 143, 172);
+}
+
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px 0;
-  padding: 0 40px;
+  padding: 0;
 }
 
 .app-title {
   color: lightsteelblue;
+  padding: 0;
+  margin: 0;
 }
 
 .To-do-list-section {
@@ -51,21 +58,29 @@ h2 {
 }
 
 .add-new-to-do {
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
-  margin: 5px auto;
-  padding: 5px 15px 5px 40px;
+  margin: 0 auto;
+  padding: 0 15px 0 0;
+  box-shadow: 1px 1px 1px 2px #ccc;
 }
 
 .add-new-to-do > input {
-  width: 90%;
+  width: 80%;
   margin: 0;
-  padding: 15px 10px;
+  padding: 12px 10px;
   font-size: 1.2rem;
   border: 0;
-  box-shadow: 1px 1px 1px 4px #ccc;
+}
+
+#addtask {
+  padding: 18px 30px;
+  margin: 0 10px 0 0;
+  background: lightblue;
+  border: 0;
 }
 
 .to-do-list {
@@ -80,9 +95,20 @@ h2 {
   width: 90%;
   list-style: none;
   margin: 10px 0;
-  padding: 3px 10px;
+  padding: 15px;
   border: 2px solid #ccc;
   cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.info {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .list-item:nth-child(even) {
@@ -93,15 +119,25 @@ h2 {
   background: darkgray;
 }
 
-.task-info-completed {
-  margin-left: auto;
+.action {
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  margin: 0;
+  border: 0;
+  background: lightblue;
+  box-shadow: 1px 1px 1px 2px #000;
 }
 
-.three-dots {
-  float: right;
-  display: inline;
-  font-size: 1.2rem;
-  cursor: pointer;
+.action:hover {
+  transform: scale(1.2);
+}
+
+#error {
+  font-size: 1rem;
+  color: red;
+  font-weight: bold;
+  margin: 4px;
 }
 
 .task-status {
@@ -110,4 +146,28 @@ h2 {
   color: gray;
   text-align: center;
   border: 1px solid #ccc;
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+    height: auto;
+  }
+
+  .site-header,
+  .To-do-list-section {
+    width: 100%;
+    font-size: 0.9rem;
+    margin: 0 auto;
+  }
+
+  .action {
+    font-size: 1rem;
+    transform: none;
+  }
+
+  .list-item > #task-info {
+    width: auto;
+    height: 30px;
+  }
 }

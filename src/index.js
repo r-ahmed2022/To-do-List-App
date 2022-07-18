@@ -1,53 +1,58 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
-import _ from 'lodash';
+import _, { constant } from 'lodash';
 import './style.css';
 import refresh from './refresh.png';
+import Tasks from './modules/tasks.js';
+import showTasks from './modules/showTasks.js';
 
-const tasks = [
-  {
-    index: 3,
-    description: 'to finish to do list app',
-    completed: false,
-
-  },
-
-  {
-    index: 2,
-    description: 'to finish daily tasks',
-    completed: true,
-
-  },
-
-  {
-    index: 1,
-    description: 'to finish standup meeting',
-    completed: true,
-
-  },
-
-];
-
-let count = 0;
-
-const showTasks = (task) => {
-  count += 1;
-  const list = document.getElementById('to-do-list');
-  const li = document.createElement('li');
-  li.setAttribute('class', 'list-item');
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  li.append(checkbox);
-  li.innerHTML += `<span class=task-info>${task.index}</span>&nbsp; &nbsp;&nbsp;&nbsp;`;
-  li.innerHTML += `<span class=task-info>${task.description}</span>&nbsp;&nbsp;&nbsp;&nbsp;`;
-  li.innerHTML += `<span class=task-info-completed>${task.completed.toString().toUpperCase()}</span>`;
-  li.innerHTML += '<div class="three-dots">&#10247;</div>';
-  list.append(li);
-};
+const task = new Tasks();
+const form = document.getElementById('add-new-to-do');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (document.getElementById('input-item').value === '') {
+    document.getElementById('error').innerHTML = 'please add task first';
+  } else {
+    task.addTasks();
+  }
+});
 
 setInterval(() => {
   const countmsg = document.getElementById('msgs');
-  countmsg.innerHTML = `${count}&nbsp;tasks`;
+  countmsg.innerHTML = `${task.tasklist.length}&nbsp;tasks`;
 }, 1000);
+
+window.deleteTask = (i) => {
+  task.tasklist.splice(i, 1);
+  task.tasklist.forEach((item) => {
+    if (item.index <= 0) {
+      item.index = 1;
+    } else {
+      item.index -= 1;
+    }
+  });
+  localStorage.setItem('tasks', JSON.stringify(task.tasklist));
+  window.location.reload();
+};
+
+const saveTask = (i, item) => {
+  const updated = prompt('update the task', item);
+  if (updated === null) return item;
+  task.tasklist[i].description = updated;
+  localStorage.setItem('tasks', JSON.stringify(task.tasklist));
+  return true;
+};
+
+window.editTask = (i, element) => {
+  const list = JSON.parse(localStorage.getItem('tasks'));
+  for (let i = 0; i < list.length; i += 1) {
+    if (task.tasklist[i].description === element) {
+      const updatedTask = task.tasklist[i].description;
+      saveTask(i, updatedTask);
+    }
+  }
+  window.location.reload();
+};
 
 const element = document.getElementById('msg-logo');
 const icon = new Image();
@@ -55,6 +60,5 @@ icon.src = refresh;
 element.appendChild(icon);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const sortArr = tasks.sort((a, b) => parseInt(a.index, 10) - parseInt(b.index, 10));
-  sortArr.forEach((task) => showTasks(task));
+  showTasks(task);
 });

@@ -3,11 +3,7 @@
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>To-Do-App</title>
-    <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
-    </head>
+     </head>
     <body>
        <div class="container">
         <header  class="site-header">
@@ -17,9 +13,11 @@
             </nav>
         </header>
             <main class="To-do-list-section">
-                    <div class="add-new-to-do">
-                         <input class="input-item" type=text placeholder="Add to your list...">
-                    </div>
+                    <form class="add-new-to-do" id="add-new-to-do">
+                        <button type="submit" id="addtask">Add</button>
+                        <input id="input-item" type=text placeholder="Add to your list...">
+                    </form>
+                    <span id="error"></span>
                     <ul id="to-do-list">
                         
                      

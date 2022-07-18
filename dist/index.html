@@ -7,6 +7,7 @@
     href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet"
   />
+  
     <script defer src="runtime.js"></script><script defer src="index.js"></script></head>
     <body>
        <div class="container">
@@ -17,9 +18,11 @@
             </nav>
         </header>
             <main class="To-do-list-section">
-                    <div class="add-new-to-do">
-                         <input class="input-item" type=text placeholder="Add to your list...">
-                    </div>
+                    <form class="add-new-to-do" id="add-new-to-do">
+                        <button type="submit" id="addtask">Add</button>
+                        <input id="input-item" type=text placeholder="Add to your list...">
+                    </form>
+                    <span id="error"></span>
                     <ul id="to-do-list">
                         
                      
