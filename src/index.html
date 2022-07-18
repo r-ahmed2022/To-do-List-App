@@ -18,12 +18,13 @@
                         <input id="input-item" type=text placeholder="Add to your list...">
                     </form>
                     <span id="error"></span>
+                    <div class="header"><h4>Task</h4><h4>Completed</h4></div>
                     <ul id="to-do-list">
                         
                      
                     </ul>
-                    <footer class="task-status">
-                        <h4>clear all completed</h4>
+                    <footer class="task-status" id="task-status">
+                        <button class="clear-list" onclick="clearAllCompletedTasks()">clear all completed</button>
                     </footer>
             </main>
             

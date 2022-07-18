@@ -1,5 +1,3 @@
-// eslint-disable-next-line import/no-mutable-exports
-// &#10247;
 const showTasks = (task) => {
   const storedList = JSON.parse(localStorage.getItem('tasks'));
   const list = document.getElementById('to-do-list');
@@ -13,7 +11,7 @@ const showTasks = (task) => {
     );
     const li = document.createElement('li');
     li.setAttribute('class', 'list-item');
-    li.innerHTML += '<input type="checkbox" name="completed" id="ompleted">';
+    li.innerHTML += `<input type="checkbox" onchange="changed(${i}, '${task.tasklist[i].description}')"  name="completed" class="completed">`;
     li.innerHTML += `<div class="info"><span  class="task.info">${task.tasklist[i].description}</span>`;
     li.innerHTML += `<span class="task-info">${task.tasklist[i].completed}</span></div>`;
     li.innerHTML += `<div class="info"><button type="button" onclick="editTask(${i}, 
@@ -21,6 +19,17 @@ const showTasks = (task) => {
     li.innerHTML += `<button type="button" onclick='deleteTask(${i})' id="deletebtn" class="action">Del</button>
                </div>`;
     list.append(li);
+  }
+  for (let i = 0; i < storedList.length; i += 1) {
+    if (task.tasklist[i].completed === true) {
+      const check = document.getElementsByClassName('completed');
+      const collection = document.getElementsByClassName('info');
+      collection[i].style.textDecoration = 'line-through';
+      collection[i].style.color = 'green';
+      collection[i].style.fontWeight = 'bold';
+      collection[i].style.fontStyle = 'italic';
+      check[i].checked = true;
+    }
   }
 };
 
